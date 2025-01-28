@@ -5,7 +5,7 @@ players = {input(f"Enter the name of player {i + 1}: "): 0 for i in range(n)}
 # Display all player names
 # print("\nPlayers in this match:", ', '.join(players.keys()))
 # print(f"Players i this match are: \n",players.keys())
-print(f"Players in this match are: \n" )
+print(f"Players in this match are: " )
 for p in players:
     print(p,end="\t")
 
@@ -13,16 +13,19 @@ for p in players:
 for player in players:
     score = int(input(f"\nEnter the score for {player}: "))
     players[player] = score
-
-player_name=input("Enter player name to see details: ")
-print(f"Player Name: {player_name}\t Runs Scored: {players[player_name]}")
-
+try:
+    player_name=input("Enter player name to see details: ")
+    print(f"Player Name: {player_name}\t Runs Scored: {players[player_name]}")
+except KeyError:
+    print('player does not exist')
+    
 total_score = 0
 for score in players.values():
     total_score += score
 print(f"Total score of all players: {total_score}")
 
-max_scorer = max(players, key=players.get)
-min_scorer = min(players, key=players.get)
+max_scorer = max(players)
+min_scorer = min(players)
+#print(max_scorer, min_scorer)
 print(f"Maximum scorer: {max_scorer} with {players[max_scorer]} runs")
 print(f"Minimum scorer: {min_scorer} with {players[min_scorer]} runs")
