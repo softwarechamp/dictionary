@@ -1,0 +1,43 @@
+##from ass 7 , Q5
+def MatRev(in):
+	
+	def rev(n):
+	m,r=n,0
+	neg= False
+	if m<0:
+		neg=True
+		m*=(-1)
+	
+	while m>0:
+		d=m%10
+		m=m//10
+		r= (r*10) + d
+	
+	if neg:
+		return r*(-1)
+	else:
+		return r
+	
+	out=[]
+	for i in range(3):
+		k=[]
+		for j in range(3):
+			k+=[ rev( in[i][j] ) ]
+		out+=[k]
+	return out
+	
+print('enter 9 integers for 3X3 matrix')	
+l=[]
+for i in range(9):
+	try:
+		j=int(input())
+		l+=[j]
+	except ValuError:
+		print('integer only')
+
+l= [ [l[0], l[1], l[2] ], [l[3], l[4], l[5] ], [l[6], l[7], l[8] ] ]
+
+reversed= MatRev(in= l)
+
+
+
